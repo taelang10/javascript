@@ -12,7 +12,7 @@
         // alert('자바스크립트는 재미있어!'); // 함수 = 함수 + ()소괄호는 넣어야함
 
         // var num2 = 1; // 고전적인 방법
-        // let num = 1; //let 에러를 잡아준다
+        // let num = 1; // 에러를 잡아준다
 
         // const num = 1; // 변경할 수 없음
         // num = 3; // 에러
@@ -21,10 +21,32 @@
         // 각가 ${이름}, ${주소}에 사시네요 ! 당신은 ${국적}인 입니다
         
         var num2 = [1,2,3,4,5,6,7,8,9,10]; // 배열
-        let person = 
-        console.log(num2[4]);
+        // console.log(num2[4]);
+
+        // let person 으로 선언하고, 각각 이름, 나이, 
+        // 거주지를 입력 받으세요 배열로!
+
+        // let person = [
+        //     prompt('이름'), //0
+        //     prompt('나이'), //1
+        //     prompt('거주지') //2
+        // ];
+
+        // alert(person[2]);
 
 
+        let person2 = {
+            name : prompt('이름'),
+            age : prompt('나이'),
+            place : prompt('거주지')
+
+        }
+
+        // 매개값 == argument == 동전
+        // 함수 == function == method
+        alert(person2.place);
+
+        
         // let name = prompt('이름을 입력해주세요')
         // let age = prompt('나이를 입력해주세요')
         // let from = prompt('국적을 입력해주세요')
