@@ -7,17 +7,46 @@
 </head>
 <body>
     <script>
+        // array
         let arr = [1,2,3,4,5,6,7,8,9,10];
+        
+        let obj = {
+            // object
+            first: 1,
+            srcond: 2,
+            third: 3,
+        }
+        // console.log([obj.first])
+        // console.log([obj.srcond])
+        // console.log([obj.third])
 
-        arr.forEach(function(e){
-            // 짝수일때, `${e}숫자는 짝수입니다.` (console)
-            // 홀수일때, `${e}숫자는 홀수입니다.` (console)
-            if(e % 2 === 0){
-                console.log(`${e}숫자는 짝수입니다.`);
-            }else{
-                console.log(`${e}숫자는 홀수입니다.`);
+        // for문 종류
+        // for(let i=0; i<=n; i++)
+        // arr.forEach(function(e){});
+
+        // for(let i of arr)
+        // ^ 주로 배열에 많이 쓰임
+
+        // for(let i in obj)
+
+        // for(let i of arr){
+        //     console.log(i);
+        // }
+
+        for(let i in obj){
+            // i 는 key이름으로 들어온다
+            console.log(i);
+            console.log(obj[i])
+        }
+
+        for(let i of arr){
+            if(i%2 == 0){
+                continue;
             }
-        })
+            console.log(`${i}는 홀수 입니다.`)
+        }
+        
+        
     </script>
 </body>
 </html>
