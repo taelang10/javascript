@@ -40,12 +40,19 @@
         }
 
         for(let i of arr){
-            if(i%2 == 0){
+            if(i%2 === 0){
                 continue;
+                // 딱 한줄 만 있을땐 중괄호를 안써도 된다 
             }
             console.log(`${i}는 홀수 입니다.`)
         }
-        
+
+        for(let i of arr){
+            if(i===9){
+                break;
+            }
+            console.log(`${i}는 8까지만 입니다.`)
+        }
         
     </script>
 </body>
