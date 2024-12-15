@@ -15,8 +15,8 @@
      <!--  클릭을 했을때 각각 왼쪽, 오른쪽, 위쪽, 아래쪽
        버튼을 눌렀을때 어떻게  -->
 
-    <button>왼쪽</button>
-    <button>오른쪽</button>
+    <button>동쪽</button>
+    <button>서쪽</button>
     <button>위쪽</button>
     <button>아래쪽</button>
 
@@ -25,38 +25,30 @@
           // h1 >> 태그
           // #h1 >> h1이라는 ID 다
           // .h1 >> h1이라느는 클래스
-
-       // 1. btn을 선언하고
-       // 2. button태그를 document.querySelectorAll로 가져옵니다
-       // 3. 왼쪽버튼을 눌렀을때, 왼쪽! 이라고 alert가 뜰 수 있도록 만들어 보세요
        let btn = document.querySelectorAll("button");
 
        // 버튼들을 클릭했을때, 버튼입니다! 가 나오게 해야해요!
-
-        // btn.forEach(function(dom){
-        //     dom.addEventListener('click', function (){
-        //        alert('버튼입니다!');
-        //     });
-        // });
-
+       
         btn.forEach(function(dom, index){
             // 인덱스로 구분해서 왼쪽 오른쪽 위쪽 아래쪽?
             // 버튼 클릭때마다, 왼쪽 버튼입니다. 오른쪽 버튼입니다. 위쪽 버튼입니다. 오른쪽 버튼입니다가
             
-            console.log(dom, index);
+            // console.log(dom, index);
             dom.addEventListener('click', function (){
-                if(index === 0){
-                    alert('왼쪽 버튼입니다!');
-                }
-                if(index === 1){
-                    alert('오른쪽 버튼입니다!');
-                }
-                if(index === 2){
-                    alert('위쪽 버튼입니다!');
-                }
-                if(index === 3){
-                    alert('아래쪽 버튼입니다!');
-                }
+            //     if(index === 0){
+            //         alert('왼쪽 버튼입니다!');
+            //     }else if(index === 1){
+            //         alert('오른쪽 버튼입니다!');
+            //     }else if(index === 2){
+            //         alert('위쪽 버튼입니다!');
+            //     }else if(index === 3){
+            //         alert('아래쪽 버튼입니다!');
+            //     }else{
+            //         alert('버튼울 정하지 않았습니다')
+            //     }
+            
+                console.log(dom);
+
             });
         });
 
