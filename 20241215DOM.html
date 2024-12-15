@@ -9,15 +9,31 @@
     <button data-colors="빨강">red</button>
     <button data-colors="노랑">yellow</button>
     <button data-colors="초록">green</button>
+    <h1>입력된 컬러는 <span>00</span>색입니다</h1>
     
     <script>
-        let color = document.querySelectorAll("button")
+        let color = document.querySelectorAll("button");
+        let word = document.querySelector("h1 span");
+        let h1 = document.querySelector("h1");
 
-        color.forEach(function(dom){
+        // background-color
+        // 카멜표기법을 써요 >> 소문자를 썼다가 갑자기 중간에 대문자 들어오는걸 
+        // 카멜표기법이라고한다
+        // - 혹은 스페이스 이런것들의 대체용으로 대문자로 바꿔쓴다
+        
+        // word.innerText = 'abc'; // 값을 안 쓴다면 값을 가져오고 값을 쓴다면 치환한다
 
-            dom.addEventListener('click', function (){
+        h1.style.color = "red";
+        color.forEach(function(e, i){
+            e.addEventListener('click', function (){
 
-                alert(`한국말로 ${dom.getAttribute("data-colors")}입니다`)
+                // word.innerText = e.getAttribute("data-colors")
+                word.innerText = e.innerText;
+                h1.style.color = e.innerText;
+                //  자바스크립트에서 css를 수정할 수 있어요
+                //  style이라는 걸 써서 수정해요
+                // 
+                    
                 
             });
         });
