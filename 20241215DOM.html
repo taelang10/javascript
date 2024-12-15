@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button data-colors="빨강">red</button>
+    <button data-colors="노랑">yellow</button>
+    <button data-colors="초록">green</button>
+    
+    <script>
+        let color = document.querySelectorAll("button")
+
+        color.forEach(function(dom){
+
+            dom.addEventListener('click', function (){
+
+                alert(`한국말로 ${dom.getAttribute("data-colors")}입니다`)
+                
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -11,14 +11,16 @@
     <h1 class ="h1">타이틀 입니다2</h1>
     <h1 class ="h1">타이틀 입니다3</h1>
     <h1 class ="h1">타이틀 입니다4</h1>
-    <!-- 고민 시간 -->
-     <!--  클릭을 했을때 각각 왼쪽, 오른쪽, 위쪽, 아래쪽
-       버튼을 눌렀을때 어떻게  -->
 
-    <button>동쪽</button>
-    <button>서쪽</button>
-    <button>위쪽</button>
-    <button>아래쪽</button>
+    <!-- 왼쪽을 눌렀지만 보여지는 건 서쪽입니다 -->
+    <!-- 오른쪽을 눌렀지만 보여지는 건 동쪽입니다 -->
+    <!-- 북쪽을 눌렀지만 보여지는 건 위쪽입니다 -->
+    <!-- 남쪽을 눌렀지만 보여지는 건 아래쪽입니다 -->
+    <!-- attribute == 속성 == attr -->
+    <button data-value="서쪽">왼쪽</button>
+    <button data-value="동쪽">오른쪽</button>
+    <button data-value="위쪽">북쪽</button>
+    <button data-value="아래쪽">남쪽</button>
 
 
     <script>
@@ -47,8 +49,8 @@
             //         alert('버튼울 정하지 않았습니다')
             //     }
             
-                console.log(dom.innerText);// dom 안에있는 text만 보여줘라
-                alert(`${dom.innerText}버튼 입니다`)
+                console.log(dom.getAttribute("data-value"));// dom 안에있는 text만 보여줘라
+                alert(`${dom.getAttribute("data-value")}버튼 입니다`)
 
             });
         });
