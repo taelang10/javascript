@@ -22,6 +22,8 @@
     <h1 class ="h1">타이틀 입니다3</h1>
     <h1 class ="h1">타이틀 입니다4</h1>
     <h1>타이틀 입니다5</h1>
+    <button>왼쪽</button>
+    <button>오른쪽</button>
     3.<script>
         // let h1 = document.getElementsByTagName("h1");
         // let h1ID = document.getElementById("h1");
@@ -40,6 +42,12 @@
         let h1 = document.querySelectorAll(".h1"); // == array(배열)
         // let h2 = document.querySelector("#h2")
         // 2. h2에 들어오는 데이터 형태는? 단수 == dom 1개
+
+        // let h1 = [ 
+        //     <h1 class ="h1">타이틀 입니다2</h1>,
+        //     <h1 class ="h1">타이틀 입니다3</h1>,
+        //     <h1 class ="h1">타이틀 입니다4</h1>
+        // ];
 
         h1[2].addEventListener('click', function(){
             alert('네번째 클래스');
