@@ -33,17 +33,27 @@
           //    css 선택지랑 똑같이 들어가요!
 
           // h1 >> 태그
-          // #h1 >> h1이라는 아이다
-          // h1 >> h1이라느는 클래스
-        let h1 = document.querySelectorAll("#h1");
+          // #h1 >> h1이라는 ID 다
+          // .h1 >> h1이라느는 클래스
+
+        // 1. h1에 들어오는 데이터 형태는 ? array = 배열
+        let h1 = document.querySelectorAll(".h1"); // == array(배열)
+        // let h2 = document.querySelector("#h2")
+        // 2. h2에 들어오는 데이터 형태는? 단수 == dom 1개
+
+        h1[2].addEventListener('click', function(){
+            alert('네번째 클래스');
+        });
+        // let h1 = document.querySelectorAll(".h1");
+        // 값이 복수 형태로 들어온다
+
         //      행동, 행동후에 바로 실행될 함수 (== 콜백함수)
         console.log(h1/*배열로 들어와요!*/);
         // 배열로 들어오면 인덱스값으로 출력
 
-        //      아래의 h1을 오류나니 않게 고쳐보세요
-        // h1/*[0]*/.addEventListener('click', function(){
-        //     alert('h1이 선택됐습니다.');
-        // });
+        h1[0].addEventListener('click', function(){
+            alert('h1이 선택됐습니다.');
+        });
     </script>
 </body>
 </html>
