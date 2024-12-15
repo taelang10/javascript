@@ -4,64 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20241214DOM.html</title>
-    <!-- 1.<script>
-        // h1찾아줘
-        // 전체로딩 후 에 찾아줘
-        
-    </script> -->
 </head>
-<!-- docunment object model == html-->
-    <!--Hyper Text Markup Languang-->
-    <!-- !!! 웹 문서 로직을 처리하거나 계산을 안해요!!! -->
-    <!-- 문서 :: 일정 폼 -->
-    <!-- 일관성이 필수!(모든 문서가 일정해야한다) -->
+
 <body> 
-    <!-- 2.<script></script> -->
     <h1 id ="h1">타이틀 입니다1</h1>
     <h1 class ="h1">타이틀 입니다2</h1>
     <h1 class ="h1">타이틀 입니다3</h1>
     <h1 class ="h1">타이틀 입니다4</h1>
     <h1>타이틀 입니다5</h1>
+
     <button>왼쪽</button>
     <button>오른쪽</button>
-    3.<script>
-        // let h1 = document.getElementsByTagName("h1");
-        // let h1ID = document.getElementById("h1");
-        // let h1Class = document.getElementsByClassName("h1");
-        // console.log(h1);
-        // console.log(h1ID);
-        // console.log(h1Class);
-
-          //    css 선택지랑 똑같이 들어가요!
-
+    <script>
           // h1 >> 태그
           // #h1 >> h1이라는 ID 다
           // .h1 >> h1이라느는 클래스
 
-        // 1. h1에 들어오는 데이터 형태는 ? array = 배열
-        let h1 = document.querySelectorAll(".h1"); // == array(배열)
-        // let h2 = document.querySelector("#h2")
-        // 2. h2에 들어오는 데이터 형태는? 단수 == dom 1개
+       // 1. btn을 선언하고
+       // 2. button태그를 document.querySelectorAll로 가져옵니다
+       // 3. 왼쪽버튼을 눌렀을때, 왼쪽! 이라고 alert가 뜰 수 있도록 만들어 보세요
+       let btn = document.querySelectorAll("button");
 
-        // let h1 = [ 
-        //     <h1 class ="h1">타이틀 입니다2</h1>,
-        //     <h1 class ="h1">타이틀 입니다3</h1>,
-        //     <h1 class ="h1">타이틀 입니다4</h1>
-        // ];
-
-        h1[2].addEventListener('click', function(){
-            alert('네번째 클래스');
+       btn[0].addEventListener('click', function(){
+            alert('왼쪽!');
         });
-        // let h1 = document.querySelectorAll(".h1");
-        // 값이 복수 형태로 들어온다
+       
 
-        //      행동, 행동후에 바로 실행될 함수 (== 콜백함수)
-        console.log(h1/*배열로 들어와요!*/);
-        // 배열로 들어오면 인덱스값으로 출력
-
-        h1[0].addEventListener('click', function(){
-            alert('h1이 선택됐습니다.');
-        });
+       
     </script>
 </body>
 </html>
