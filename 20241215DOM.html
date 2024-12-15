@@ -23,13 +23,14 @@
         
         // word.innerText = 'abc'; // 값을 안 쓴다면 값을 가져오고 값을 쓴다면 치환한다
 
-        h1.style.color = "red";
+        // h1.style.color = "red";
         color.forEach(function(e, i){
             e.addEventListener('click', function (){
-
                 // word.innerText = e.getAttribute("data-colors")
                 word.innerText = e.innerText;
                 h1.style.color = e.innerText;
+                // h1.style.backgroundColor = e.innerText;
+
                 //  자바스크립트에서 css를 수정할 수 있어요
                 //  style이라는 걸 써서 수정해요
                 // 
