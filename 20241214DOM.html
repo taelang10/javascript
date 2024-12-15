@@ -30,8 +30,8 @@
        // 버튼들을 클릭했을때, 버튼입니다! 가 나오게 해야해요!
        
         btn.forEach(function(dom, index){
-            // 인덱스로 구분해서 왼쪽 오른쪽 위쪽 아래쪽?
-            // 버튼 클릭때마다, 왼쪽 버튼입니다. 오른쪽 버튼입니다. 위쪽 버튼입니다. 오른쪽 버튼입니다가
+            // 버튼 클릭때마다, 동쪽 버튼입니다. 서쪽 버튼입니다. 위쪽 버튼입니다. 아래쪽 버튼입니다가
+            // 각각 alert로 뜰 수 있 게 아래의 로직을 수정해보세요
             
             // console.log(dom, index);
             dom.addEventListener('click', function (){
@@ -47,7 +47,8 @@
             //         alert('버튼울 정하지 않았습니다')
             //     }
             
-                console.log(dom);
+                console.log(dom.innerText);// dom 안에있는 text만 보여줘라
+                alert(`${dom.innerText}버튼 입니다`)
 
             });
         });
