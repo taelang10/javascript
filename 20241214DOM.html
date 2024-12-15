@@ -11,10 +11,16 @@
     <h1 class ="h1">타이틀 입니다2</h1>
     <h1 class ="h1">타이틀 입니다3</h1>
     <h1 class ="h1">타이틀 입니다4</h1>
-    <h1>타이틀 입니다5</h1>
+    <!-- 고민 시간 -->
+     <!--  클릭을 했을때 각각 왼쪽, 오른쪽, 위쪽, 아래쪽
+       버튼을 눌렀을때 어떻게  -->
 
     <button>왼쪽</button>
     <button>오른쪽</button>
+    <button>위쪽</button>
+    <button>아래쪽</button>
+
+
     <script>
           // h1 >> 태그
           // #h1 >> h1이라는 ID 다
@@ -25,12 +31,35 @@
        // 3. 왼쪽버튼을 눌렀을때, 왼쪽! 이라고 alert가 뜰 수 있도록 만들어 보세요
        let btn = document.querySelectorAll("button");
 
-       btn[0].addEventListener('click', function(){
-            alert('왼쪽!');
-        });
-       
+       // 버튼들을 클릭했을때, 버튼입니다! 가 나오게 해야해요!
 
-       
+        // btn.forEach(function(dom){
+        //     dom.addEventListener('click', function (){
+        //        alert('버튼입니다!');
+        //     });
+        // });
+
+        btn.forEach(function(dom, index){
+            // 인덱스로 구분해서 왼쪽 오른쪽 위쪽 아래쪽?
+            // 버튼 클릭때마다, 왼쪽 버튼입니다. 오른쪽 버튼입니다. 위쪽 버튼입니다. 오른쪽 버튼입니다가
+            
+            console.log(dom, index);
+            dom.addEventListener('click', function (){
+                if(index === 0){
+                    alert('왼쪽 버튼입니다!');
+                }
+                if(index === 1){
+                    alert('오른쪽 버튼입니다!');
+                }
+                if(index === 2){
+                    alert('위쪽 버튼입니다!');
+                }
+                if(index === 3){
+                    alert('아래쪽 버튼입니다!');
+                }
+            });
+        });
+
     </script>
 </body>
 </html>
