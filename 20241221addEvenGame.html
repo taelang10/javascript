@@ -113,6 +113,7 @@
 
   <body>
     <div class="game-container">
+      <h4>현재 점수는 : <span>0</span>입니다</h4>
       <img src="./이미지.gif" alt="" />
       <h1>홀수일까? 짝수일까?</h1>
 
@@ -136,12 +137,13 @@
       let game = document.querySelector(".game-container");
 
       let img = document.querySelector("img");
-
       let random = 0;
-
-      let randoms = 0;
-
       let oddEven = "";
+
+      let num = document.querySelector("span");
+      let score = 0;
+      score = 10;
+      console.log(num);
 
       function ranNum() {
         random = Math.floor(Math.random() * 10) + 1;
@@ -163,6 +165,7 @@
           if (oddEven == e.innerText) {
             msg.innerText = "정답입니다.";
             img.className = "img show";
+            num.innerText = score = score + 10;
           } else {
             // 오답이 나왔을때
             msg.innerText = "오답입니다.";
