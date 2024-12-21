@@ -10,7 +10,6 @@
 
     <style>
       /* General Reset */
-
       body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -20,8 +19,8 @@
         align-items: center;
         height: 100vh;
       }
-      /* Game Container */
 
+      /* Game Container */
       .game-container {
         background: white;
         border-radius: 10px;
@@ -31,8 +30,11 @@
         max-width: 400px;
         width: 90%;
       }
-      /* Title */
+      .game-container.err {
+        animation: swing 0.1s 5 forwards;
+      }
 
+      /* Title */
       .game-container h1 {
         margin: 0 0 10px;
         font-size: 2rem;
@@ -40,7 +42,6 @@
       }
 
       /* Instructions */
-
       .instructions {
         font-size: 1.1rem;
         margin-bottom: 20px;
@@ -48,7 +49,6 @@
       }
 
       /* Buttons */
-
       .buttons {
         display: flex;
         justify-content: center;
@@ -73,7 +73,6 @@
       }
 
       /* Result Display */
-
       .result {
         padding: 10px 0;
         border-top: 1px solid #ddd;
@@ -84,6 +83,21 @@
         font-size: 1.2rem;
         margin: 0;
         font-weight: bold;
+      }
+
+      @keyframes swing {
+        0% {
+          transform: rotate(0deg);
+        }
+        40% {
+          transform: rotate(10deg);
+        }
+        80% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
       }
     </style>
   </head>
@@ -109,43 +123,42 @@
     <script>
       let btn = document.querySelectorAll(".buttons button"); // 기존숫자 : 랜덤
       let msg = document.querySelector(".result-message");
+      let game = document.querySelector(".game-container");
 
-      let random = Math.floor(Math.random() * 10) + 1;
+      let random = 0;
 
-      let randoms = Math.floor(Math.random() * 10) + 1;
+      let randoms = 0;
 
       let oddEven = "";
 
-      if (random % 2 == 0) {
-        oddEven = "짝수";
-      } else {
-        oddEven = "홀수";
-      }
+      function ranNum() {
+        random = Math.floor(Math.random() * 10) + 1;
 
-      if (randoms % 2 == 0) {
-        oddEven = "짝수";
-      } else {
-        oddEven = "홀수";
+        if (random % 2 === 0) {
+          oddEven = "짝수";
+        } else {
+          oddEven = "홀수";
+        }
       }
+      ranNum();
 
       btn.forEach(function (e) {
         console.log(`원래 값: ${random}`);
-        e.addEventListener("click", function () {
-          // alert안에 클릭한 버튼의 내용안에있는
-          //  텍스트를 가져와서 띄워보세요!
-          // alert(e.innerText);          // 클릭한 버튼 내의 텍스트와 , 랜덤 숫자의 홀/짝 카테고리가 맞으면
-          // 정답입니다! 를 alert로, 아니라면 오답입니다! 를 alert로 띄울수 있게
-          // 만들어보세요
 
+        e.addEventListener("click", function () {
           console.log(e.innerText);
           if (oddEven == e.innerText) {
             msg.innerText = "정답입니다.";
           } else {
             // 오답이 나왔을때
             msg.innerText = "오답입니다.";
-            // 값 재정비가 필요해요
+            ranNum();
+            game.className = "game-container err";
+            setTimeout(function () {
+              game.className = "game-container";
+            }, 500);
           }
-          console.log(`재정비 값:${Math.floor(Math.random() * 10) + 1}`);
+          console.log("재정비 값:" + random);
         });
       });
     </script>
