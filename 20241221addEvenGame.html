@@ -108,27 +108,44 @@
 
     <script>
       let btn = document.querySelectorAll(".buttons button"); // 기존숫자 : 랜덤
+      let msg = document.querySelector(".result-message");
+
       let random = Math.floor(Math.random() * 10) + 1;
+
+      let randoms = Math.floor(Math.random() * 10) + 1;
+
       let oddEven = "";
+
       if (random % 2 == 0) {
         oddEven = "짝수";
       } else {
         oddEven = "홀수";
       }
 
+      if (randoms % 2 == 0) {
+        oddEven = "짝수";
+      } else {
+        oddEven = "홀수";
+      }
+
       btn.forEach(function (e) {
+        console.log(`원래 값: ${random}`);
         e.addEventListener("click", function () {
           // alert안에 클릭한 버튼의 내용안에있는
           //  텍스트를 가져와서 띄워보세요!
           // alert(e.innerText);          // 클릭한 버튼 내의 텍스트와 , 랜덤 숫자의 홀/짝 카테고리가 맞으면
           // 정답입니다! 를 alert로, 아니라면 오답입니다! 를 alert로 띄울수 있게
           // 만들어보세요
+
           console.log(e.innerText);
           if (oddEven == e.innerText) {
-            alert("정답입니다.");
+            msg.innerText = "정답입니다.";
           } else {
-            alert("오답입니다.");
+            // 오답이 나왔을때
+            msg.innerText = "오답입니다.";
+            // 값 재정비가 필요해요
           }
+          console.log(`재정비 값:${Math.floor(Math.random() * 10) + 1}`);
         });
       });
     </script>
