@@ -99,11 +99,21 @@
           transform: rotate(0deg);
         }
       }
+
+      img {
+        width: 100%;
+        display: none;
+      }
+
+      img.show {
+        display: block;
+      }
     </style>
   </head>
 
   <body>
     <div class="game-container">
+      <img src="./이미지.gif" alt="" />
       <h1>홀수일까? 짝수일까?</h1>
 
       <p class="instructions">
@@ -125,6 +135,8 @@
       let msg = document.querySelector(".result-message");
       let game = document.querySelector(".game-container");
 
+      let img = document.querySelector("img");
+
       let random = 0;
 
       let randoms = 0;
@@ -144,11 +156,13 @@
 
       btn.forEach(function (e) {
         console.log(`원래 값: ${random}`);
+        console.log();
 
         e.addEventListener("click", function () {
           console.log(e.innerText);
           if (oddEven == e.innerText) {
             msg.innerText = "정답입니다.";
+            img.className = "img show";
           } else {
             // 오답이 나왔을때
             msg.innerText = "오답입니다.";
@@ -157,6 +171,7 @@
             setTimeout(function () {
               game.className = "game-container";
             }, 500);
+            img.className = "img";
           }
           console.log("재정비 값:" + random);
         });
