@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>time2.html</title>
+  </head>
+  <body>
+    <h2>안녕하세요, 저는 양태랑입니다.</h2>
+    <script>
+      let h2 = document.querySelector("h2");
+      let txt = h2.innerText;
+      h2.innerText = "";
+      //   console.log(txt[2]);
+      let cnt = 0;
+
+      // 0.5초 마다 하나씩 텍스트 넣기
+      let add = setInterval(function () {
+        console.log(txt[cnt]);
+        h2.innerText += txt[cnt];
+        cnt++;
+        if (txt[cnt] == undefined) {
+          clearInterval(add);
+        }
+      }, 500);
+    </script>
+  </body>
+</html>

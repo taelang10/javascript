@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보 게임</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Gaegu&display=swap");
+      body {
+        font-family: "Gaegu", sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #ffebcd;
+      }
+
+      h1 {
+        margin-top: 20px;
+        color: #ff69b4;
+        text-shadow: 2px 2px 3px #ffa07a;
+      }
+
+      .scoreboard {
+        margin: 20px 0;
+        font-size: 1.2em;
+        color: #4b0082;
+      }
+
+      .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .computer-choice {
+        margin: 20px 0;
+      }
+
+      .computer-choice img {
+        width: 150px;
+        height: 150px;
+        border: 4px solid #ff69b4;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .buttons {
+        margin-top: 20px;
+        display: flex;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .buttons button {
+        width: calc(100% / 3);
+        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        background-color: #f7f7f7;
+        color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s, background-color 0.2s;
+        font-size: 0;
+      }
+      button img {
+        width: 100%;
+      }
+
+      .buttons button:hover {
+        border: 4px solid #ff69b4;
+        transform: scale(1.1);
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 1.5em;
+        color: #ff69b4;
+        text-shadow: 1px 1px 3px #ffa07a;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>가위 바위 보</h1>
+
+    <div class="scoreboard">
+      <p>내 점수: <span id="player-score">0</span></p>
+      <p>컴퓨터 점수: <span id="computer-score">0</span></p>
+    </div>
+
+    <div class="game-container">
+      <div class="computer-choice">
+        <img id="computer-image" src="./가위.png" alt="Computer's Choice" />
+      </div>
+
+      <div class="buttons">
+        <button id="rock">바위<img src="./바위.png" alt="" /></button>
+        <button id="paper">보<img src="./보.png" alt="" /></button>
+        <button id="scissors">가위<img src="./가위.png" alt="" /></button>
+        <button id="refresh">새로고침<img src="./ref.png" alt="" /></button>
+      </div>
+    </div>
+
+    <div class="result" id="result">
+      <!-- 결과가 여기에 표시됨 -->
+    </div>
+    <script>
+      let options = ["가위", "바위", "보"];
+      let cnt = 0;
+      let comimg = document.querySelector("#computer-image");
+      let btn = document.querySelectorAll("button");
+      let random = 0;
+      let comRes = "";
+      let move = "";
+      let res = document.querySelector(".result");
+      let playerScore = document.querySelector("#player-score");
+      let computerScore = document.querySelector("#computer-score");
+      let flag = true;
+      console.log(res);
+
+      function init() {
+        random = Math.floor(Math.random() * 3);
+        comRes = options[random];
+
+        move = setInterval(function () {
+          comimg.setAttribute("src", `./${options[cnt]}.png`);
+          cnt++;
+          cnt = cnt % 3; // if문을 안써도 더 간편하게 쓸 수 있다
+        }, 100);
+        console.log(`컴퓨터가 낸거 : ${comRes}`);
+      }
+
+      function winLose(comRes, state) {
+        if (
+          // 이긴케이스 '전부'
+          (comRes === "바위" && state === "보") ||
+          (comRes === "가위" && state === "바위") ||
+          (comRes === "보" && state === "가위")
+        ) {
+          return "이김";
+        } else {
+          return "내가짐";
+        }
+      }
+      init();
+
+      btn.forEach(function (e) {
+        e.addEventListener("click", function () {
+          let state = e.innerText;
+          // console.log(e.innerText);
+          clearInterval(move);
+
+          comimg.setAttribute("src", `./${comRes}.png`);
+
+          if (state === "새로고침") {
+            init();
+            res.innerText = "";
+            flag = true;
+          } else {
+            if (flag) {
+              if (state === comRes) {
+                res.innerText = "무승부입니다";
+              } else {
+                if (winLose(comRes, state) === "이김") {
+                  // 플레이어 +1
+                  res.innerText = "당신이 이겼습니다";
+                  playerScore.innerText = playerScore.innerText * 1 + 1;
+                } else {
+                  // 컴퓨터 +1
+                  computerScore.innerText = computerScore.innerText * 1 + 1;
+                  res.innerText = "당신이 졌습니다.";
+                }
+                flag = false;
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

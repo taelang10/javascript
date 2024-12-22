@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><span>10</span>초 뒤에 홀짝 게임이 시작됩니다</h2>
+    <script>
+      //   setInterval(function () {
+      //     //
+      //     console.log("안녕하세요!");
+      //   }, 500);
+
+      let h2 = document.querySelector("h2 span");
+      let cnt = h2.innerText * 1;
+
+      let cntDown = setInterval(function () {
+        // 변수로 저장해야 쓸 수
+        cnt--;
+        h2.innerText = cnt;
+        if (cnt <= 0) {
+          clearInterval(cntDown);
+        }
+      }, 1000);
+
+      setTimeout(function () {
+        window.location.href = "./20241221addEvenGame.html"; // 페이지 움직이기
+      }, 10000);
+    </script>
+  </body>
+</html>
