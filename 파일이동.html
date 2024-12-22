@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>귀여운 로딩 페이지</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Gaegu&display=swap");
+      body {
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f8ff;
+        font-family: "Arial", sans-serif;
+        padding-top: 50vh;
+        overflow: hidden;
+      }
+
+      .loading-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 200px;
+        margin: auto;
+      }
+
+      .ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 5px;
+        background-color: #ff77c5;
+        animation: bounce 1.5s infinite ease-in-out;
+      }
+      h2 {
+        font-family: "Gaegu";
+        font-size: 20px;
+        text-align: center;
+      }
+
+      /* 애니메이션: 공이 가로로 왔다 갔다 */
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(0);
+          background-color: #ff77c5;
+        }
+        50% {
+          transform: translateX(40px);
+          background-color: #ffca28;
+        }
+      }
+
+      .ball:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .ball:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+
+      .ball:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading-container">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <h2><span>5</span>초 뒤 가위바위보 게임이 시작됩니다!</h2>
+    <script>
+      let h2 = document.querySelector("h2 span");
+      let cnt = h2.innerText * 1;
+
+      let cntDown = setInterval(function () {
+        cnt--;
+        h2.innerText = cnt;
+        if (cnt <= 0) {
+          clearInterval(cntDown);
+        }
+      }, 1000);
+
+      setTimeout(function () {
+        window.location.href = "./RPS.html";
+      }, 5000);
+    </script>
+  </body>
+</html>
