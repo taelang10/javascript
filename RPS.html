@@ -86,7 +86,7 @@
     <h1>가위 바위 보</h1>
 
     <div class="scoreboard">
-      <p>내 점수: <span id="player-score">0</span></p>
+      <p><span class="user">내</span> 점수: <span id="player-score">0</span></p>
       <p>컴퓨터 점수: <span id="computer-score">0</span></p>
     </div>
 
@@ -118,7 +118,11 @@
       let playerScore = document.querySelector("#player-score");
       let computerScore = document.querySelector("#computer-score");
       let flag = true;
-      console.log(res);
+      let user = document.querySelector("p .user");
+
+      let name = prompt("이름을 입력하세요");
+
+      let num = (user.innerText = name);
 
       function init() {
         random = Math.floor(Math.random() * 3);
@@ -165,12 +169,12 @@
               } else {
                 if (winLose(comRes, state) === "이김") {
                   // 플레이어 +1
-                  res.innerText = "당신이 이겼습니다";
+                  res.innerText = `${num} 이겼습니다`;
                   playerScore.innerText = playerScore.innerText * 1 + 1;
                 } else {
                   // 컴퓨터 +1
                   computerScore.innerText = computerScore.innerText * 1 + 1;
-                  res.innerText = "당신이 졌습니다.";
+                  res.innerText = `${num} 졌습니다.`;
                 }
                 flag = false;
               }
