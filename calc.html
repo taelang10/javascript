@@ -130,8 +130,11 @@
                                 case '/':
                                     sum /= prevNum
                                     break;
+                            }
+                            switch(opt){
                                 case 'clear':
                                     sum = 0;
+                                    break
                             }
                         }else{
                             sum = prevNum * 1;
