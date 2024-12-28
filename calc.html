@@ -96,7 +96,7 @@
             let inp = document.querySelector("input");
             let prevNum = 0;
             let opt = false;
-            let = prevOpt = false;
+            let prevOpt = false;
             let sum = 0;
 
 
@@ -111,31 +111,30 @@
                         inp.value = inp.value*1;
                         // isNaN을 바탕으로 숫자만 입력되게 해보세요
                     } else{
-                        sum = prevNum*1;
                         prevNum = inp.value*1;
                         prevOpt = opt;
                         opt = now;
                         // console.log(`지지난값: ${sum}, 지난값 : ${prevNum}, 전체계산: ${opt}, 이전계산: ${prevOpt}`);
-                        
-                        switch(prevOpt){
-                            case '+':
-                                console.log(prevNum + sum);
-                                sum+=prevNum
-                                console.log(sum);
-                                break;
-                            case '-':
-                                console.log(prevNum -= sum);
-                                sum-=prevNum
-                                break;
-                            case '*':
-                                console.log(prevNum * sum);
-                                sum= sum * prevNum
-                                break;
-                            case '/':
-                                console.log(prevNum / sum);
-                                sum = sum/prevNum
-                                break;
+                        if(prevOpt){
+                            switch(prevOpt){
+                                case '+':
+                                    sum += prevNum;
+                                    break;
+                                case '-':
+                                    sum-=prevNum
+                                    break;
+                                case '*':
+                                    sum= sum * prevNum
+                                    break;
+                                case '/':
+                                    sum = sum/prevNum
+                                    break;
+                            }
+                        }else{
+                            sum = prevNum * 1;
                         }
+                        console.log(sum)
+
                         inp.value = 0;
                     }
                     
