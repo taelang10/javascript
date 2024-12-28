@@ -99,9 +99,22 @@
 
             btn.forEach(function(e){
                 e.addEventListener('click', function(){
-                    let txt = e.innerText;
-                    inp.setAttribute('value', txt); //이름 값에 치환 가능
+                    let now = e.innerText;
+                    // inp.setAttribute(`value`, txt); //이름 값에 치환 가능
                     // inp.value = txt;
+
+                    if(isNaN(now)== false){
+                        inp.value += now;
+                        inp.value = inp.value*1;
+                    }
+                    // isNaN을 바탕으로 숫자만 입력되게 해보세요
+
+                    if(isNan(now)== true){
+                        now*0;
+                    }
+
+
+
 
 
                 });
