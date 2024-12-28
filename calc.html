@@ -94,7 +94,10 @@
             // 1. 버튼을 클릭될때마다 , 버튼 안의 text가 
             let btn = document.querySelectorAll("button");
             let inp = document.querySelector("input");
-
+            let prevNum = 0;
+            let opt = false;
+            let = prevOpt = false;
+            let sum = 0;
 
 
             btn.forEach(function(e){
@@ -106,12 +109,31 @@
                     if(isNaN(now)== false){
                         inp.value += now;
                         inp.value = inp.value*1;
+                        // isNaN을 바탕으로 숫자만 입력되게 해보세요
+                    } else{
+                        sum = prevNum;
+                        prevNum = inp.value;
+                        prevOpt = opt;
+                        opt = now;
+                        // console.log(`지지난값: ${sum}, 지난값 : ${prevNum}, 전체계산: ${opt}, 이전계산: ${prevOpt}`);
+                        
+                        switch(opt){
+                            case '+':
+                                console.log('+입니다');
+                                break;
+                            case '-':
+                                console.log('-입니다');
+                                break;
+                            case '*':
+                                console.log('*입니다');
+                                break;
+                            case '/':
+                                console.log('/입니다');
+                                break;
+                        }
+                        inp.value = 0;
                     }
-                    // isNaN을 바탕으로 숫자만 입력되게 해보세요
-
-                    if(isNaN(now)== true){
-                        inp.value = inp.value*0;
-                    }
+                    
 
 
 
