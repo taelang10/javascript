@@ -98,6 +98,7 @@
             let opt = false;
             let prevOpt = false;
             let sum = 0;
+            let crn = 0;
 
 
             btn.forEach(function(e){
@@ -107,11 +108,11 @@
                     // inp.value = txt;
 
                     if(isNaN(now)== false){
-                        inp.value += now;
-                        inp.value = inp.value*1;
+                        crn += now;
+                        inp.value = crn*1;
                         // isNaN을 바탕으로 숫자만 입력되게 해보세요
                     } else{
-                        prevNum = inp.value*1;
+                        prevNum = crn*1;
                         prevOpt = opt;
                         opt = now;
                         // console.log(`지지난값: ${sum}, 지난값 : ${prevNum}, 전체계산: ${opt}, 이전계산: ${prevOpt}`);
@@ -124,24 +125,21 @@
                                     sum-=prevNum
                                     break;
                                 case '*':
-                                    sum= sum * prevNum
+                                    sum *= prevNum
                                     break;
                                 case '/':
-                                    sum = sum/prevNum
+                                    sum /= prevNum
                                     break;
+                                case 'clear':
+                                    sum = 0;
                             }
                         }else{
                             sum = prevNum * 1;
                         }
                         console.log(sum)
-
-                        inp.value = 0;
+                        crn = 0;
+                        inp.value = sum;
                     }
-                    
-
-
-
-
 
                 });
             });
