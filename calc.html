@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>calc.html</title>
     <style>
         body {
@@ -56,17 +56,17 @@
         .buttons .operator:hover {
             background: #1e7e34;
         }
-        .buttons .clear{
+        .buttons .clear {
             background-color: #f00;
         }
-        .buttons .clear:hover{
+        .buttons .clear:hover {
             background-color: rgb(170, 1, 1);
         }
     </style>
 </head>
 <body>
     <div class="calculator">
-        <input type="text" class="display" disabled value="0">
+        <input type="text" class="display" disabled value="0" />
         <div class="buttons">
             <button>7</button>
             <button>8</button>
@@ -130,18 +130,24 @@
                                 case '/':
                                     sum /= prevNum
                                     break;
+                                default:
                             }
-                            switch(opt){
-                                case 'clear':
-                                    sum = 0;
-                                    break
-                            }
+                            
+                            
                         }else{
                             sum = prevNum * 1;
                         }
-                        console.log(sum)
                         crn = 0;
                         inp.value = sum;
+
+                        if (now === 'clear'){
+                            inp.value = 0;
+                            let prevNum = 0;
+                            let opt = false;
+                            let prevOpt = false;
+                            let sum = 0;
+                            let crn = 0;
+                        }
                     }
 
                 });
