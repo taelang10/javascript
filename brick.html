@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>brick,html</title>
+    <style>
+      /* 기본 스타일링 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      #brick-wall {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .brick {
+        background-color: #8b4513;
+        border-radius: 5px;
+        border: 1px solid #582c0c;
+        height: 50px;
+      }
+      .cement {
+        width: 100%;
+        height: 10px;
+        background-color: #525252;
+        grid-column: 1 / -1;
+      }
+      div.btns {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btns">
+      <button>시멘트 바르기</button>
+      <button>블록쌓기</button>
+    </div>
+    <div id="brick-wall">
+      <div class="cement"></div>
+      <div class="brick"></div>
+      <div class="brick"></div>
+      <div class="brick"></div>
+    </div>
+
+    <script></script>
+  </body>
+</html>

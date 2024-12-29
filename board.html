@@ -89,21 +89,27 @@
           이곳은 샘플 게시글 내용입니다. 필요한 내용을 여기에 작성하세요.
         </div>
         <div class="post-meta">작성일: 2024-12-26</div>
+        <button>삭제</button>
       </div>
     </div>
     <script>
       const title = ["운동", "공부", "코딩", "일기", "요리"];
       const note = ["운동방법", "오답노트", "암기노트", "방학계획", "요리노트"];
+
       const cnt = document.querySelector(".board-container");
       const post = document.querySelector(".post");
+      post.remove();
 
       title.forEach(function (e, i) {
         let ps = post.cloneNode(true);
         let ttl = ps.querySelector(".post-title");
         let nt = ps.querySelector(".post-content");
         nt.innerText = note[i];
-
         ttl.innerText = e;
+        const btn = ps.querySelector("button");
+        btn.addEventListener("click", function () {
+          this.parentElement.remove();
+        });
         cnt.append(ps);
       });
     </script>
