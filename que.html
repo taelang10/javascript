@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>append.html</title>
+    <title>Document</title>
   </head>
   <body>
-    <ul>
+    <ul class="list">
       <li>리스트1</li>
     </ul>
+
+    <button>추가</button>
 
     <script>
       let ul = document.querySelector("ul");
       let li = document.querySelector("li");
+      let btn = document.querySelector("button");
 
-      for (let i = 2; i < 11; i++) {
-        let liClone = li.cloneNode(true);
-        liClone.innerText = `리스트${i}`;
+      btn.addEventListener("click", function () {
+        let liClone = li.cloneNode(
+          true /*li태그안에 있는 값도 가지고오기 위해서*/
+        );
         ul.append(liClone);
-      }
+      });
     </script>
   </body>
 </html>
