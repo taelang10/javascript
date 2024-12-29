@@ -18,9 +18,7 @@
       let btn = document.querySelector("button");
 
       btn.addEventListener("click", function () {
-        let liClone = li.cloneNode(
-          true /*li태그안에 있는 값도 가지고오기 위해서*/
-        );
+        let liClone = li.cloneNode(true /*li태그안에 있는 값도 가지고오기 위해서*/);
         ul.append(liClone);
       });
     </script>

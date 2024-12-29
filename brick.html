@@ -62,6 +62,27 @@
       <div class="brick"></div>
     </div>
 
-    <script></script>
+    <script>
+      const btn = document.querySelectorAll("button");
+      const brick = document.querySelector(".brick");
+      const brickWall = document.querySelector("#brick-wall");
+      const cement = document.querySelector(".cement");
+
+      btn.forEach(function (e, i) {
+        if (i == 1) {
+          e.addEventListener("click", function () {
+            const diClone = brick.cloneNode(true);
+            let br = brick.cloneNode();
+            brickWall.prepend(br);
+          });
+        } else {
+          e.addEventListener("click", function () {
+            const ceClone = cement.cloneNode(true);
+            let ce = cement.cloneNode();
+            brickWall.prepend(ce);
+          });
+        }
+      });
+    </script>
   </body>
 </html>
