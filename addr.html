@@ -89,14 +89,20 @@
     <div class="search-container">
       <h2>주소 찾기</h2>
       <div class="input-group">
-        <input type="text" id="addressInput"  placeholder="주소를 입력하세요" autocomplete="off" />
+        <input
+          type="text"
+          id="addressInput"
+          placeholder="주소를 입력하세요"
+          autocomplete="off"
+        />
         <button>검색</button>
       </div>
-      <ul id="suggestionsList" class="suggestions"></ul>
+      <ul id="suggestionsList" class="suggestions">
+        <li>dummy</li>
+      </ul>
     </div>
 
     <script>
-      let list = document.querySelector(".suggestions");
       let inp = document.querySelector("input");
       // 더미 데이터로 주소 자동완성 예시
       const dummySuggestions = [
@@ -130,6 +136,36 @@
         "서울특별시 금천구 시흥대로 154",
         "경기도 평택시 송탄로 234",
       ];
-</script>
-</body>
+      const li = document.querySelector("li");
+      const ul = document.querySelector("ul");
+      li.remove();
+
+      dummySuggestions.forEach(function (e) {
+        let liClone = li.cloneNode();
+        liClone.innerText = e;
+        ul.append(liClone);
+      });
+      // input이면 : 실시간 검색 내용이 나온다
+      // change면 : 검색 했을때 내요잉 나온다
+      inp.addEventListener("input", function () {
+        let val = this.value.trim();
+        let list = ul.querySelectorAll("li");
+        list.forEach(function (e) {
+          if (e.innerText.includes(val) && val !== "") {
+            e.innerHTML = e.innerText.replace(val, `<span>${val}</span>`);
+            e.style.display = "block";
+          } else {
+            e.style.display = "none";
+          }
+        });
+      });
+
+      let listAdd = ul.querySelectorAll("li");
+      listAdd.forEach(function (e) {
+        e.addEventListener("click", function () {
+          inp.value = this.innerText;
+        });
+      });
+    </script>
+  </body>
 </html>
