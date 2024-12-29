@@ -93,7 +93,7 @@
     </div>
     <script>
       const title = ["운동", "공부", "코딩", "일기", "요리"];
-      const note = ["오답노트", "운동방법", "암기노트", "요리노트", "방학계획"];
+      const note = ["운동방법", "오답노트", "암기노트", "방학계획", "요리노트"];
       const cnt = document.querySelector(".board-container");
       const post = document.querySelector(".post");
 
@@ -101,7 +101,7 @@
         let ps = post.cloneNode(true);
         let ttl = ps.querySelector(".post-title");
         let nt = ps.querySelector(".post-content");
-        nt.innerText = `note${i}번째`;
+        nt.innerText = note[i];
 
         ttl.innerText = e;
         cnt.append(ps);
