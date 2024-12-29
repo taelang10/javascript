@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주소 검색</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f9f9f9;
+      }
+
+      .search-container {
+        width: 400px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .search-container h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .input-group input {
+        width: 80%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+        box-sizing: border-box;
+      }
+
+      .input-group button {
+        padding: 10px 15px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .input-group button:hover {
+        background-color: #0056b3;
+      }
+
+      .suggestions {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background: #f8f8f8;
+        border-top: none;
+        max-height: 200px;
+        overflow-y: auto;
+        margin-top: 5px;
+      }
+
+      .suggestions li {
+        padding: 10px;
+        display: none;
+        cursor: pointer;
+      }
+      .suggestions li span {
+        color: #0056b3;
+        font-weight: bold;
+      }
+
+      .suggestions li:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-container">
+      <h2>주소 찾기</h2>
+      <div class="input-group">
+        <input type="text" id="addressInput"  placeholder="주소를 입력하세요" autocomplete="off" />
+        <button>검색</button>
+      </div>
+      <ul id="suggestionsList" class="suggestions"></ul>
+    </div>
+
+    <script>
+      let list = document.querySelector(".suggestions");
+      let inp = document.querySelector("input");
+      // 더미 데이터로 주소 자동완성 예시
+      const dummySuggestions = [
+        "서울특별시 강남구 테헤란로 123",
+        "서울특별시 마포구 홍익로 45",
+        "부산광역시 해운대구 센텀중앙로 98",
+        "대전광역시 유성구 테크노1로 234",
+        "서울특별시 종로구 종로 12",
+        "서울특별시 송파구 백제고분로 123",
+        "경기도 성남시 분당구 판교로 235",
+        "서울특별시 용산구 한남대로 96",
+        "부산광역시 부산진구 전포로 56",
+        "광주광역시 서구 금호동 145",
+        "인천광역시 연수구 송도동 123",
+        "울산광역시 남구 삼산로 56",
+        "경기도 고양시 일산동구 중앙로 100",
+        "경기도 수원시 장안구 송죽동 82",
+        "서울특별시 강서구 화곡로 255",
+        "서울특별시 동대문구 서울로 245",
+        "대구광역시 중구 국채보상로 88",
+        "경상북도 경주시 경주로 23",
+        "서울특별시 성북구 고려대로 72",
+        "경기도 안양시 동안구 시민로 56",
+        "충청남도 천안시 서북구 백석로 12",
+        "강원도 춘천시 강원대로 45",
+        "전라북도 전주시 완산구 전주로 98",
+        "전라남도 광양시 광양로 112",
+        "경상남도 창원시 성산구 창원대로 301",
+        "서울특별시 서초구 반포대로 99",
+        "부산광역시 남구 용호로 56",
+        "서울특별시 금천구 시흥대로 154",
+        "경기도 평택시 송탄로 234",
+      ];
+</script>
+</body>
+</html>
