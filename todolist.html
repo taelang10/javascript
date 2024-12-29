@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할일목록</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .todo-container {
+        background: #ffffff;
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .todo-input {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .todo-input input {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .addTaskBtn {
+        padding: 10px 15px;
+        font-size: 16px;
+        border: none;
+        background-color: #28a745;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .addTaskBtn:hover {
+        background-color: #218838;
+      }
+
+      .todo-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .todo-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .todo-item:last-child {
+        border-bottom: none;
+      }
+
+      .todo-item span {
+        flex: 1;
+        color: #333;
+      }
+
+      .delete-btn {
+        padding: 5px 10px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .delete-btn:hover {
+        background-color: #c82333;
+      }
+      /* 활성화된 버튼 */
+      .delete-btn.active-btn {
+        background-color: #dc3545;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+
+      .delete-btn.active-btn:hover {
+        background-color: #c82333;
+      }
+
+      /* 기본 체크박스 스타일 */
+      .todo-checkbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px; /* 텍스트와 간격 */
+        cursor: pointer;
+        accent-color: #28a745; /* 체크박스 색상 (녹색) */
+        border: 1px solid #ccc;
+        border-radius: 4px; /* 살짝 둥근 모서리 */
+      }
+
+      /* 체크박스에 포커스 시 */
+      .todo-checkbox:focus {
+        outline: 2px solid #28a745;
+        outline-offset: 2px;
+      }
+
+      /* 체크박스 선택됨 상태 */
+      .todo-checkbox:checked {
+        accent-color: #218838; /* 더 진한 녹색 */
+      }
+      /* 비활성화 상태 (disabled-btn 클래스) */
+      .disabled-btn {
+        background-color: #e0e0e0; /* 회색 배경 */
+        color: #aaa; /* 흐릿한 텍스트 */
+        cursor: not-allowed; /* 클릭 불가 느낌 */
+        pointer-events: none;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .disabled-btn:hover {
+        background-color: #e0e0e0; /* 회색 배경 */
+        color: #aaa; /* 흐릿한 텍스트 */
+        cursor: not-allowed; /* 클릭 불가 느낌 */
+        border: none;
+        pointer-events: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo-container">
+      <!-- <h1>to-do-list</h1> -->
+      <h1>할일목록</h1>
+      <div class="todo-input">
+        <!-- <input type="text" placeholder="Add a new task..." id="taskInput" /> -->
+        <input type="text" placeholder="할일을 입력해주세요" id="taskInput" />
+        <!-- <button class="addTaskBtn disabled-btn">Add</button> -->
+        <button class="addTaskBtn disabled-btn">추가</button>
+      </div>
+      <ul class="todo-list" id="todoList">
+        <li class="todo-item">
+          <span>Sample Task</span>
+          <!-- <button class="delete-btn">Delete</button> -->
+          <button class="delete-btn">삭제</button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const input = document.querySelector("input");
+      const btn = document.querySelector(".addTaskBtn.disabled-btn");
+      input.addEventListener("input", function () {
+        btn.className = "addTaskBtn";
+        if (this.value == "") {
+          btn.className = "addTaskBtn disabled-btn";
+        }
+      });
+    </script>
+  </body>
+</html>
