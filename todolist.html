@@ -175,11 +175,27 @@
     <script>
       const input = document.querySelector("input");
       const btn = document.querySelector(".addTaskBtn.disabled-btn");
+      const li = document.querySelector(".todo-item");
+      const list = document.querySelector(".todo-list");
+      li.remove();
+
       input.addEventListener("input", function () {
         btn.className = "addTaskBtn";
         if (this.value == "") {
           btn.className = "addTaskBtn disabled-btn";
         }
+      });
+
+      btn.addEventListener("click", function () {
+        let item = li.cloneNode(true);
+        item.querySelector("span").innerText = input.value;
+        list.append(item);
+        const btnSm = item.querySelector("button");
+        btnSm.addEventListener("click", function () {
+          this.parentElement.remove();
+        });
+        input.value = "";
+        btn.className = "addTaskBtn disabled-btn";
       });
     </script>
   </body>
